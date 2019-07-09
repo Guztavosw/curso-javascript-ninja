@@ -98,7 +98,8 @@ Crie um método chamado `obterMarcaModelo`, que retorne:
 "Esse carro é um [MARCA] [MODELO]"
 Para retornar os valores de marca e modelo, utilize os métodos criados.
 */
-?
+carro.obterMarcaModelo = function(){
+... return 'Esse carro é um ' + carro.Marca +' '+ carro.Modelo};
 
 /*
 Crie um método que irá adicionar pessoas no carro. Esse método terá as
@@ -116,7 +117,24 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 - Se couber somente mais uma pessoa, mostrar a palavra "pessoa" no retorno
 citado acima, no lugar de "pessoas".
 */
-?
+carro.adicionarPessoas = function( numeroPessoas) {
+	var totalPessoas = carro.quantidadePessoas + numeroPessoas;
+	if ( carro.quantidadePessoas === carro.Assentos){
+		return 'O carro já está lotado!';
+	}
+
+
+	if(totalPessoas > carro.Assentos){
+		var quantasPessoasCabem = carro.Assentos - carro.quantidadePessoas;
+		var pluralOuSingular = quantasPessoasCabem === 1 ? 'pessoa' : 'pessoas';
+		return 'Só cabem mais ' + quantasPessoasCabem +' '+ pluralOuSingular + '!';
+
+
+	}
+	carro.quantidadePessoas += numeroPessoas;
+	return 'Já temos ' + carro.quantidadePessoas + ' pessoas no carro!';
+}
+
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
@@ -126,31 +144,31 @@ retornar algum valor.
 
 Qual a cor atual do carro?
 */
-?
+Azul
 
 // Mude a cor do carro para vermelho.
-?
+carro.mudarCor('Vermelho')
 
 // E agora, qual a cor do carro?
 ?
-
+carro.obterCor()
 // Mude a cor do carro para verde musgo.
-?
+carro.mudarCor('verde musgo');
 
 // E agora, qual a cor do carro?
-?
+?carro.obterCor() / verde musgca
 
 // Qual a marca e modelo do carro?
-?
+carro.obterMarcaModelo() // 'Esse carro é um Jaguar F-type'
 
 // Adicione 2 pessoas no carro.
-?
+carro.adicionarPessoas(2)
 
 // Adicione mais 4 pessoas no carro.
-?
+carro.adicionarPessoas(4) 
 
 // Faça o carro encher.
-?
+carro.adicionarPessoas(3) //'Já temos 5 pessoas no carro!'
 
 // Tire 4 pessoas do carro.
 ?
